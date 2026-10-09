@@ -10,17 +10,14 @@ export function SiteHeader() {
           <span>PATHOLOGIC</span>
         </Link>
         <nav className="desktop-nav" aria-label="Primary navigation">
-          <Link href="/" className="nav-link">Home</Link>
-          <Link href="/#approach" className="nav-link">Our approach</Link>
+         <Link href="/" className="nav-link">Home</Link>
           <Link href="/privacy-policy" className="nav-link">Privacy</Link>
           <Link href="/terms-and-conditions" className="nav-link">Terms</Link>
-          <Link href="/#contact" className="nav-cta">Get in touch <ArrowUpRight aria-hidden="true" /></Link>
         </nav>
         <details className="mobile-menu">
           <summary aria-label="Open navigation"><Menu aria-hidden="true" /></summary>
           <nav aria-label="Mobile navigation">
             <Link href="/">Home</Link>
-            <Link href="/#approach">Our approach</Link>
             <Link href="/privacy-policy">Privacy policy</Link>
             <Link href="/terms-and-conditions">Terms &amp; conditions</Link>
           </nav>
@@ -36,10 +33,12 @@ export function SiteFooter() {
       <div className="container footer-grid">
         <div>
           <Link href="/" className="brand footer-brand"><span className="brand-mark" aria-hidden="true"><span /></span><span>PATHOLOGIC</span></Link>
-          <p className="footer-copy">Structured thinking for better veterinary diagnostics.</p>
+          <p className="footer-copy">From Field Findings to Laboratory Confirmation.<br />A systematic postmortem. A better sample. A more accurate diagnosis.</p>
         </div>
         <div className="footer-links">
           <Link href="/">Home</Link>
+          <Link href="/#about">About</Link>
+          <Link href="/#how-to-use">How to Use</Link>
           <Link href="/privacy-policy">Privacy policy</Link>
           <Link href="/terms-and-conditions">Terms &amp; conditions</Link>
         </div>
@@ -53,6 +52,8 @@ export function PageShell({ children }: { children: React.ReactNode }) {
   return <><SiteHeader />{children}<SiteFooter /></>
 }
 
+/* ──────── DATA ARRAYS ──────── */
+
 export const steps = [
   ['01', 'Observe', 'Examine the animal and identify findings.'],
   ['02', 'Record', 'Document postmortem observations.'],
@@ -60,6 +61,48 @@ export const steps = [
   ['04', 'Sample', 'Identify recommended samples.'],
   ['05', 'Test', 'Review recommended investigations.'],
   ['06', 'Confirm', 'Support confirmation through laboratory testing and veterinary judgement.'],
+] as const
+
+export const howToUseSteps = [
+  ['Step 1', 'Start the Application'],
+  ['Step 2', 'Select the Animal Species'],
+  ['Step 3', 'Record External Examination Findings'],
+  ['Step 4', 'Examine the Mucous Membranes'],
+  ['Step 5', 'Examine the Lymph Nodes'],
+  ['Step 6', 'Systematic Examination of Internal Organs'],
+  ['Step 7', 'Enter Multiple Findings'],
+  ['Step 8', 'Obtain a Tentative Diagnosis'],
+  ['Step 9', 'Sample Collection Recommendations'],
+  ['Step 10', 'Recommended Confirmatory Laboratory Tests'],
+  ['Step 11', 'Generate a Diagnostic Sampling Checklist'],
+] as const
+
+export const whyPoints = [
+  ['What could be the disease?', 'Based on the combination of gross lesions observed during postmortem examination.'],
+  ['What samples should I collect?', 'The app recommends appropriate tissues, organs, swabs, blood or other specimens according to the suspected disease.'],
+  ['Which laboratory tests should be performed?', 'The app suggests appropriate confirmatory investigations such as histopathology, bacterial culture, PCR/RT-PCR, antigen detection, immunohistochemistry, serology, toxicological examination, and more.'],
+] as const
+
+export const whoCanUse = [
+  'Field veterinarians',
+  'Veterinary officers',
+  'Veterinary pathologists',
+  'Disease investigation officers',
+  'Veterinary diagnostic laboratories',
+  'Veterinary hospitals',
+  'Government veterinary services',
+  'Veterinary teaching institutions',
+  'Veterinary students during supervised field training',
+  'Epidemiological and outbreak investigation teams',
+] as const
+
+export const corePrinciple = [
+  ['Observe', 'the gross lesions carefully.'],
+  ['Record', 'the findings systematically.'],
+  ['Suspect', 'the most likely diseases and differentials.'],
+  ['Sample', 'the correct tissues using the correct collection method.'],
+  ['Test', 'using appropriate laboratory investigations.'],
+  ['Confirm', 'the diagnosis through laboratory evidence.'],
 ] as const
 
 export const features = [
