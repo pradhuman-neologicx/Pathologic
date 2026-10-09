@@ -22,7 +22,6 @@ import {
   FeatureIcon,
   PageShell,
   features,
-  steps,
   howToUseSteps,
   whyPoints,
   whoCanUse,
@@ -252,42 +251,12 @@ make laboratory confirmation difficult or impossible.
           </div>
         </section>
 
-        {/* ══════════ APPROACH (6 steps) ══════════ */}
-        <section className="approach-section" id="approach">
-          <div className="container">
-            <div className="section-heading">
-              <div>
-                <p className="eyebrow">05 / Our Approach</p>
-                <h2>
-                  From finding to <em>confirmation.</em>
-                </h2>
-              </div>
-              <p>
-                One considered step at a time, keeping the veterinary professional at the centre
-                of every decision.
-              </p>
-            </div>
-            <div className="steps-grid">
-              {steps.map(([number, title, copy], index) => (
-                <div
-                  className={`step-card ${index === 5 ? 'step-card-final' : ''}`}
-                  key={number}
-                >
-                  <span className="step-number">{number}</span>
-                  <div className="step-marker" />
-                  <h3>{title}</h3>
-                  <p>{copy}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* ══════════ CAPABILITIES ══════════ */}
         <section className="features-section">
           <div className="container">
             <div className="feature-intro">
-              <p className="eyebrow">06 / Capabilities</p>
+              <p className="eyebrow">05 / Capabilities</p>
               <h2>
                 Designed for <em>deliberate</em> decisions.
               </h2>
@@ -316,7 +285,7 @@ make laboratory confirmation difficult or impossible.
           <div className="container">
             <div className="section-heading">
               <div>
-                <p className="eyebrow">07 / Who Can Use Pathologic</p>
+                <p className="eyebrow">06 / Who Can Use Pathologic</p>
                 <h2>
                   Built for <em>professionals</em> in the field.
                 </h2>
