@@ -12,8 +12,8 @@ export default function TermsAndConditions() {
             <h1>Terms and Conditions</h1>
             <p>
               PATHOLOGIC – A Field Veterinary Postmortem &amp; Disease Investigation Assistant<br />
-              Effective Date: 09th October 2026<br />
-              Last Updated: 09th October 2026
+              Effective Date: 12 October 2026<br />
+              Last Updated: 12 October 2026
             </p>
             
           </div>
@@ -309,19 +309,29 @@ export default function TermsAndConditions() {
               <p>A user may discontinue use of PATHOLOGIC at any time.</p>
             </section>
 
-            <section>
+            <section id="governing-law">
               <h2>21. Governing Law</h2>
               <p>These Terms shall be governed by the laws applicable in India.</p>
-              <p>Subject to applicable law, disputes relating to these Terms or PATHOLOGIC shall be subject to the jurisdiction of the competent courts at:</p>
-              <p>[Bikaner, Rajasthan, India / INSERT ACTUAL JURISDICTION]</p>
+              <p>Subject to applicable law, disputes relating to these Terms or PATHOLOGIC shall be subject to the jurisdiction of the competent courts at Bikaner, Rajasthan, India.</p>
             </section>
 
-            <section>
+            <section id="contact">
               <h2>22. Contact</h2>
               <p>For questions regarding these Terms, please contact:</p>
-              <p>PATHOLOGIC Developer/Publisher:<br />[Name / Organisation]</p>
-              <p>Email: [Official Email Address]</p>
-              <p>Postal Address:<br />[Complete Official Address]</p>
+              <ul>
+                <li>
+                  <strong>Developer/Publisher:</strong> Dr Manisha Mathur, Professor and Head, Department of Pathology, College of Veterinary and Animal Sciences, Bikaner
+                </li>
+                <li>
+                  <strong>Email:</strong>{' '}
+                  <a href="mailto:head6.pathology@gmail.com" className="legal-link">
+                    head6.pathology@gmail.com
+                  </a>
+                </li>
+                <li>
+                  <strong>Postal Address:</strong> Department of Veterinary Pathology, College of Veterinary and Animal Sciences, Bikaner, Rajasthan, India
+                </li>
+              </ul>
             </section>
 
             <section>
@@ -335,15 +345,6 @@ export default function TermsAndConditions() {
                 <li>Sample collection and transportation must follow appropriate laboratory and biosafety requirements</li>
                 <li>You accept these Terms and Conditions</li>
               </ul>
-              <div className="mt-8">
-                <p className="font-medium text-lg text-ink mb-2">PATHOLOGIC</p>
-                <p className="font-medium text-ink mb-4">Observe &rarr; Record &rarr; Suspect &rarr; Sample &rarr; Test &rarr; Confirm</p>
-                <p className="font-medium text-ink">
-                  A systematic postmortem.<br />
-                  A better sample.<br />
-                  A more accurate diagnosis
-                </p>
-              </div>
             </section>
 
           </div>
