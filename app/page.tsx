@@ -1,31 +1,22 @@
 import Link from 'next/link'
 import {
-  ArrowUpRight,
   Check,
-  ClipboardList,
-  FlaskConical,
+  ChevronDown,
+  ArrowRight,
   ScanSearch,
-  Search,
+  FlaskConical,
+  ClipboardList,
   Microscope,
-  ShieldCheck,
-  Stethoscope,
-  GraduationCap,
-  Building2,
-  Hospital,
-  BookOpen,
-  Globe,
-  ChevronRight,
-  ArrowDown,
+  ShieldAlert,
+  Smartphone,
+  Sparkles,
 } from 'lucide-react'
 import {
-  ArrowIcon,
-  FeatureIcon,
+  GooglePlayButton,
   PageShell,
-  features,
-  howToUseSteps,
-  whyPoints,
-  whoCanUse,
-  corePrinciple,
+  keyFeaturesList,
+  howItWorksList,
+  whoCanUseList,
 } from '@/components/site-header'
 
 export const metadata = {
@@ -34,145 +25,230 @@ export const metadata = {
     'PATHOLOGIC is a mobile application designed to assist field veterinarians during postmortem examination and disease investigation. From field findings to laboratory confirmation.',
 }
 
-const whoIcons = [
-  Stethoscope, ShieldCheck, Microscope, Search, FlaskConical,
-  Hospital, Building2, GraduationCap, BookOpen, Globe,
-]
-
 export default function Home() {
   return (
     <PageShell>
-      <main>
-        {/* ══════════ HERO ══════════ */}
+      <main className="home-main">
+        {/* ═══════════════ SECTION 1: HERO ═══════════════ */}
         <section className="hero">
           <div className="container hero-grid">
             <div className="hero-copy">
-              <p className="eyebrow">
-                <span className="eyebrow-dot" /> Field Veterinary Postmortem &amp; Disease
-                Investigation Assistant
-              </p>
-              <h1>
+              <div className="hero-badge-wrap">
+                <span className="eyebrow-pill">
+                  <span className="eyebrow-dot" /> Veterinary Diagnostic Support
+                </span>
+              </div>
+              <h1 className="hero-brand-title">
                 <em>PATHOLOGIC</em>
               </h1>
-              <p className="hero-subtitle">
-                A Field Veterinary Postmortem &amp; Disease Investigation Assistant
+              <p className="hero-tagline">
+                From Field Findings to Laboratory Confirmation
               </p>
               <p className="hero-description">
-                PATHOLOGIC is a mobile application designed to assist field veterinarians during
-                postmortem examination and disease investigation. The app guides the veterinarian
-                through systematic recording of gross lesions and, based on the combination of
-                findings entered, provides tentative diagnoses, recommended samples to collect,
-                and appropriate laboratory tests.
+                PATHOLOGIC is a field veterinary postmortem and disease investigation assistant
+                that helps veterinarians record pathological findings, explore possible diagnoses,
+                and identify appropriate samples and laboratory tests.
               </p>
               <div className="hero-actions">
-                <Link className="button button-primary" href="#how-to-use">
-                  How to Use <ArrowIcon />
-                </Link>
-                <Link className="text-link" href="#about">
-                  Learn more <ArrowIcon />
+                <GooglePlayButton href="#download" />
+                <Link className="button button-secondary" href="#features">
+                  <span>Explore Features</span>
+                  <ChevronDown size={15} />
                 </Link>
               </div>
-
+              <div className="hero-species-pill">
+                <span className="species-label">Supported Species:</span>
+                <span>Cattle · Buffalo · Sheep · Goats · Horses · Camels · Dogs · Cats · Pigs</span>
+              </div>
             </div>
+
             <div className="hero-visual">
               <div className="visual-glow" />
               <div className="visual-card visual-card-main">
-
+                <div className="card-top">
+                  <span className="status-dot" />
+                  <span>Postmortem Case Session</span>
+                  <span className="card-number">ACTIVE · ID #PM-408</span>
+                </div>
                 <div className="scan-line" />
-                <div className="visual-label">Diagnostic findings</div>
-                <div className="finding-row">
-                  <span className="finding-icon">
-                    <ScanSearch />
-                  </span>
-                  <span>
-                    <strong>Observation recorded</strong>
-                    <small>Respiratory system · noted</small>
-                  </span>
-                  <Check />
+
+                <div className="visual-body">
+                  <div className="visual-label">Gross Pathological Findings</div>
+
+                  <div className="finding-row">
+                    <span className="finding-icon">
+                      <ScanSearch size={18} />
+                    </span>
+                    <span className="finding-text">
+                      <strong>Observation Recorded</strong>
+                      <small>Respiratory system · Lung hepatization noted</small>
+                    </span>
+                    <span className="finding-badge">
+                      <Check size={14} />
+                    </span>
+                  </div>
+
+                  <div className="finding-row">
+                    <span className="finding-icon">
+                      <ClipboardList size={18} />
+                    </span>
+                    <span className="finding-text">
+                      <strong>Differential Suspected</strong>
+                      <small>Bovine Respiratory Disease Complex</small>
+                    </span>
+                    <span className="finding-badge finding-badge-accent">
+                      <Sparkles size={13} />
+                    </span>
+                  </div>
+
+                  <div className="finding-row">
+                    <span className="finding-icon">
+                      <FlaskConical size={18} />
+                    </span>
+                    <span className="finding-text">
+                      <strong>Recommended Sample</strong>
+                      <small>Cranioventral lung margin · 10% Neutral Formalin</small>
+                    </span>
+                    <span className="finding-badge">
+                      <Check size={14} />
+                    </span>
+                  </div>
+
+                  <div className="finding-row muted">
+                    <span className="finding-icon">
+                      <Microscope size={18} />
+                    </span>
+                    <span className="finding-text">
+                      <strong>Confirmatory Test</strong>
+                      <small>Histopathology &amp; Bacterial Culture / PCR</small>
+                    </span>
+                    <span className="finding-badge finding-badge-pending">
+                      Ready
+                    </span>
+                  </div>
                 </div>
-                <div className="finding-row">
-                  <span className="finding-icon">
-                    <ClipboardList />
-                  </span>
-                  <span>
-                    <strong>Sample suggested</strong>
-                    <small>Lung tissue · recommended</small>
-                  </span>
-                  <Check />
-                </div>
-                <div className="finding-row muted">
-                  <span className="finding-icon">
-                    <FlaskConical />
-                  </span>
-                  <span>
-                    <strong>Investigation pathway</strong>
-                    <small>Ready for professional review</small>
-                  </span>
+
+                <div className="visual-footer-bar">
+                  <span className="protocol-text">Diagnostic Decision Support Active</span>
+                  <span className="protocol-badge">Systematic Flow</span>
                 </div>
               </div>
+
               <div className="visual-orbit orbit-one" />
               <div className="visual-orbit orbit-two" />
               <div className="visual-tag">
-                <span className="status-dot" /> Structured by design
+                <span className="status-dot" /> Field to Confirmatory Lab
               </div>
-              
             </div>
           </div>
         </section>
 
-        {/* ══════════ ABOUT ══════════ */}
+        {/* ═══════════════ SECTION 2: ABOUT PATHOLOGIC ═══════════════ */}
         <section className="about-section" id="about">
-          <div className="container split-section">
-            <div>
-              <p className="eyebrow">01 / About Pathologic</p>
-              <h2>
-                Bridging the gap between field findings and{' '}
-                <em>laboratory confirmation.</em>
+          <div className="container">
+            {/* Top header area */}
+            <div className="about-header">
+              <p className="eyebrow">About PATHOLOGIC</p>
+              <h2 className="about-title">
+                Bridging Field Examination and{' '}
+                <em>Laboratory Diagnosis.</em>
               </h2>
             </div>
-            <div className="section-copy">
-              <p>
-                In field conditions, a veterinarian can often reach only a tentative diagnosis
-                based on gross postmortem findings. However, a definitive diagnosis usually
-                requires laboratory confirmation. The accuracy of laboratory diagnosis depends
-                greatly on selecting the right samples, collecting them correctly, preserving them
-                appropriately, and sending them for the appropriate laboratory tests.
-              </p>
-              <p>
-                PATHOLOGIC bridges this important gap between field postmortem findings and
-                confirmatory laboratory diagnosis.
-              </p>
-              <p className="small-note">
-                The app guides the veterinarian through systematic recording of gross lesions
-                and, based on the combination of findings entered, provides a tentative/possible
-                diagnosis, important differential diagnoses, recommended samples, appropriate
-                sample collection guidance, and recommended laboratory tests.
-              </p>
+
+            {/* Two column content */}
+            <div className="about-grid">
+              {/* Left: Dark hero card */}
+              <div className="about-dark-card">
+                <div className="about-dark-glow" />
+                <div className="about-dark-badge">The Field Challenge</div>
+                <p className="about-dark-lead">
+                  During a field postmortem, a veterinarian can reach only a <strong>tentative diagnosis</strong> based
+                  on gross findings. A <strong>definitive diagnosis</strong> requires laboratory confirmation — which depends on selecting the right samples, collecting them correctly, and requesting appropriate tests.
+                </p>
+                <div className="about-dark-divider" />
+                <p className="about-dark-solution">
+                  <span className="about-solution-icon">
+                    <Sparkles size={18} />
+                  </span>
+                  PATHOLOGIC bridges this gap — connecting field observations to structured laboratory confirmation.
+                </p>
+              </div>
+
+              {/* Right: Pathway + pillars */}
+              <div className="about-right-col">
+                <p className="about-right-intro">
+                  PATHOLOGIC supports a structured examination workflow. By connecting recorded pathological
+                  findings with tentative diagnoses, sample collection recommendations, and laboratory testing
+                  guidance, the application helps veterinarians conduct more systematic disease investigations.
+                </p>
+
+                {/* Animated pathway flow */}
+                <div className="about-pathway">
+                  <div className="pathway-step">
+                    <div className="pathway-icon-ring">
+                      <ScanSearch size={20} />
+                    </div>
+                    <div className="pathway-label">
+                      <strong>Observe &amp; Record</strong>
+                      <small>Systematic gross lesion documentation</small>
+                    </div>
+                  </div>
+                  <div className="pathway-connector">
+                    <ArrowRight size={16} />
+                  </div>
+                  <div className="pathway-step">
+                    <div className="pathway-icon-ring">
+                      <ClipboardList size={20} />
+                    </div>
+                    <div className="pathway-label">
+                      <strong>Suspect &amp; Sample</strong>
+                      <small>Tentative diagnosis &amp; specimen selection</small>
+                    </div>
+                  </div>
+                  <div className="pathway-connector">
+                    <ArrowRight size={16} />
+                  </div>
+                  <div className="pathway-step">
+                    <div className="pathway-icon-ring pathway-icon-ring-final">
+                      <Microscope size={20} />
+                    </div>
+                    <div className="pathway-label">
+                      <strong>Test &amp; Confirm</strong>
+                      <small>Laboratory investigation &amp; confirmation</small>
+                    </div>
+                  </div>
+                </div>
+
+                
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ══════════ WHY PATHOLOGIC ══════════ */}
-        <section className="why-section" id="why">
+        {/* ═══════════════ SECTION 3: KEY FEATURES ═══════════════ */}
+        <section className="features-section" id="features">
           <div className="container">
-            <div className="section-heading">
-              <div>
-                <p className="eyebrow">02 / Why Pathologic</p>
-                <h2>
-                  Three important <em>questions</em> answered.
-                </h2>
-              </div>
-              <p className='text-justify'>
-                During a field postmortem, important diagnostic information can easily be missed. Similarly, an 
-incorrect sample, improper preservation, or failure to collect multiple appropriate tissues may 
-make laboratory confirmation difficult or impossible.
-
+            <div className="section-header-centered">
+              <p className="eyebrow">Key Features</p>
+              <h2>
+                Comprehensive <em>Field Capabilities</em>
+              </h2>
+              <p className="section-lead">
+                Six dedicated features built to support systematic disease investigation and
+                targeted laboratory confirmation in the field.
               </p>
             </div>
-            <div className="why-grid">
-              {whyPoints.map(([title, description], index) => (
-                <div className="why-card" key={title}>
-                  <span className="why-number">0{index + 1}</span>
+
+            <div className="features-grid-cards">
+              {keyFeaturesList.map(({ title, description, Icon, tag }, index) => (
+                <div className="feature-card-modern" key={title}>
+                  <div className="feature-card-top">
+                    <span className="feature-card-icon-box">
+                      <Icon size={22} />
+                    </span>
+                    <span className="feature-card-number">0{index + 1}</span>
+                  </div>
+                  <span className="feature-card-tag">{tag}</span>
                   <h3>{title}</h3>
                   <p>{description}</p>
                 </div>
@@ -181,179 +257,110 @@ make laboratory confirmation difficult or impossible.
           </div>
         </section>
 
-        {/* ══════════ CORE PRINCIPLE ══════════ */}
-        <section className="principle-section" id="principle">
+        {/* ═══════════════ SECTION 4: HOW IT WORKS ═══════════════ */}
+        <section className="how-it-works-section" id="how-it-works">
           <div className="container">
-            <div className="principle-header">
-              <p className="eyebrow">03 / The Core Principle</p>
+            <div className="section-header-centered">
+              <p className="eyebrow">How It Works</p>
               <h2>
-                <em>&ldquo;Observe → Record → Suspect → Sample → Test → Confirm&rdquo;</em>
+                A Structured Approach to <em>Disease Investigation</em>
               </h2>
-              <p className="principle-subtitle">
-                PATHOLOGIC is designed around this simple diagnostic pathway.
+              <p className="section-lead">
+                A seamless, systematic 6-step diagnostic pathway from gross postmortem observation
+                to confirmatory laboratory diagnosis.
               </p>
             </div>
-            <div className="principle-flow">
-              {corePrinciple.map(([verb, desc], index) => (
-                <div className="principle-step" key={verb}>
-                  <div className="principle-icon-wrap">
-                    <span className="principle-icon">{['👁', '📝', '🔍', '🧪', '🔬', '✅'][index]}</span>
-                  </div>
-                  <div className="principle-text">
-                    <strong>{verb}</strong> {desc}
-                  </div>
-                  {index < corePrinciple.length - 1 && (
-                    <div className="principle-arrow">
-                      <ArrowDown size={16} />
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
-        {/* ══════════ HOW TO USE ══════════ */}
-        <section className="howto-section" id="how-to-use">
-          <div className="container">
-            <div className="section-heading">
-              <div>
-                <p className="eyebrow">04 / How to Use Pathologic</p>
-                <h2>
-                  Simple, fast <em>workflow</em> for the field.
-                </h2>
-              </div>
-              <p>
-                Species → Findings → Organ Systems → Tentative Diagnosis → Samples → Laboratory
-                Tests
-              </p>
-            </div>
-            <div className="howto-grid">
-              {howToUseSteps.map(([step, title], index) => (
-                <div
-                  className={`howto-card ${index === howToUseSteps.length - 1 ? 'howto-card-final' : ''}`}
-                  key={step}
-                >
-                  <div className="howto-number-wrap">
-                    <span className="howto-number">{step}</span>
-                    {index < howToUseSteps.length - 1 && (
-                      <div className="howto-connector" />
+            <div className="how-it-works-grid">
+              {howItWorksList.map(({ step, title, description }, index) => (
+                <div className="step-flow-card" key={step}>
+                  <div className="step-flow-header">
+                    <span className="step-flow-number">{step}</span>
+                    <span className="step-flow-dot" />
+                    {index < howItWorksList.length - 1 && (
+                      <span className="step-flow-line" />
                     )}
                   </div>
-                  <div className="howto-content">
-                    <div className="howto-marker" />
+                  <div className="step-flow-content">
                     <h3>{title}</h3>
+                    <p>{description}</p>
                   </div>
-                  <ChevronRight className="howto-chevron" size={18} />
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-
-        {/* ══════════ CAPABILITIES ══════════ */}
-        <section className="features-section">
+        {/* ═══════════════ SECTION 5: WHO CAN USE PATHOLOGIC? ═══════════════ */}
+        <section className="who-section" id="who-can-use">
           <div className="container">
-            <div className="feature-intro">
-              <p className="eyebrow">05 / Capabilities</p>
+            <div className="section-header-centered">
+              <p className="eyebrow">Intended Users</p>
               <h2>
-                Designed for <em>deliberate</em> decisions.
+                Designed for <em>Veterinary Professionals</em>
               </h2>
-              <p>
-                Practical capabilities that support the way veterinary professionals already think
-                and work.
+              <p className="section-lead">
+                PATHOLOGIC is intended for professionals and institutions involved in animal disease
+                investigation, including:
               </p>
             </div>
-            <div className="features-list">
-              {features.map(([title, copy], index) => (
-                <div className="feature-row" key={title}>
-                  <FeatureIcon index={index} />
-                  <div>
+
+            <div className="who-grid-modern">
+              {whoCanUseList.map(({ title, Icon, badge }) => (
+                <div className="who-card-modern" key={title}>
+                  <span className="who-icon-box">
+                    <Icon size={22} />
+                  </span>
+                  <div className="who-content">
+                    <span className="who-badge-pill">{badge}</span>
                     <h3>{title}</h3>
-                    <p>{copy}</p>
                   </div>
-                  <ArrowUpRight aria-hidden="true" />
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ══════════ WHO CAN USE ══════════ */}
-        <section className="who-section" id="who">
+        {/* ═══════════════ SECTION 6: DOWNLOAD THE APP ═══════════════ */}
+        <section className="download-cta-section" id="download">
           <div className="container">
-            <div className="section-heading">
-              <div>
-                <p className="eyebrow">06 / Who Can Use Pathologic</p>
-                <h2>
-                  Built for <em>professionals</em> in the field.
-                </h2>
+            <div className="download-banner-card">
+              <div className="download-glow" />
+              <div className="download-badge">
+                <Smartphone size={20} />
               </div>
-              <p>
-                PATHOLOGIC is particularly useful for a wide range of veterinary professionals
-                and institutions.
+              <h2>Make Your Field Investigations More Systematic</h2>
+              <p className="download-description">
+                Use PATHOLOGIC to connect postmortem observations with appropriate sample collection
+                and laboratory investigation recommendations.
               </p>
-            </div>
-            <div className="who-grid">
-              {whoCanUse.map((role, index) => {
-                const Icon = whoIcons[index]
-                return (
-                  <div className="who-card" key={role}>
-                    <span className="who-icon">
-                      <Icon size={20} />
-                    </span>
-                    <span>{role}</span>
-                  </div>
-                )
-              })}
+              <div className="download-actions">
+                <GooglePlayButton className="google-play-btn-large" />
+              </div>
+              
             </div>
           </div>
         </section>
 
-        {/* ══════════ DISCLAIMER ══════════ */}
-        <section className="disclaimer-section">
+        {/* ═══════════════ SECTION 7: IMPORTANT DISCLAIMER ═══════════════ */}
+        <section className="disclaimer-section" id="disclaimer">
           <div className="container disclaimer-inner">
-            <div className="disclaimer-mark">!</div>
-            <div>
+            <div className="disclaimer-mark">
+              <ShieldAlert size={24} />
+            </div>
+            <div className="disclaimer-content">
               <p className="eyebrow">Important Disclaimer</p>
-              <h2>Support, not substitution.</h2>
+              <h2>Diagnostic Decision Support</h2>
               <p>
-                PATHOLOGIC is a veterinary diagnostic decision-support and postmortem sampling
-                aid. The tentative diagnosis generated by the application should not be considered
-                a definitive diagnosis.
-              </p>
-              <p>
-                Final diagnosis should be established using appropriate laboratory
-                investigations, clinical history, epidemiological information, gross pathology,
-                histopathology and/or other specialized diagnostic methods, as appropriate.
-              </p>
-              <p>
-                Sample collection, preservation, packaging and transportation should follow
-                applicable biosafety requirements and the instructions of the receiving diagnostic
-                laboratory.
+                PATHOLOGIC provides tentative diagnostic suggestions and sample collection guidance
+                to support veterinary disease investigation. It does not replace professional
+                veterinary judgement or definitive laboratory diagnosis. Final conclusions should
+                consider appropriate laboratory investigations, clinical history, epidemiological
+                information, and pathological findings. Sample handling and transportation must comply
+                with applicable biosafety requirements and the receiving laboratory&apos;s
+                instructions.
               </p>
             </div>
-          </div>
-        </section>
-
-        {/* ══════════ CLOSING CTA ══════════ */}
-        <section className="closing-section">
-          <div className="container">
-            <p className="eyebrow">From Field Findings to Laboratory Confirmation</p>
-            <h2>
-              A systematic postmortem.
-              <br />
-              <em>A better sample.</em>
-              <br />
-              A more accurate diagnosis.
-            </h2>
-            <p className="closing-tagline">
-              PATHOLOGIC — Helping Field Veterinarians Investigate Disease, One Lesion at a Time.
-            </p>
-            <Link className="button button-light" href="#contact">
-              Get the App <ArrowIcon />
-            </Link>
           </div>
         </section>
       </main>

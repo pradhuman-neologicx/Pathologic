@@ -1,5 +1,60 @@
 import Link from 'next/link'
-import { ArrowUpRight, Menu } from 'lucide-react'
+import {
+  ArrowUpRight,
+  Menu,
+  Stethoscope,
+  Microscope,
+  ShieldCheck,
+  Hospital,
+  Building2,
+  GraduationCap,
+  ClipboardList,
+  Search,
+  FlaskConical,
+  ClipboardCheck,
+  PawPrint,
+} from 'lucide-react'
+
+export function GooglePlayButton({
+  href = '#download',
+  className = '',
+}: {
+  href?: string
+  className?: string
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`google-play-btn ${className}`}
+      aria-label="Get it on Google Play"
+    >
+      <svg className="google-play-icon" viewBox="0 0 24 24" width="22" height="22" fill="none">
+        <path
+          d="M3.609 1.814L13.792 12 3.61 22.186A2.217 2.217 0 0 1 3 20.617V3.383c0-.608.225-1.168.609-1.569z"
+          fill="#00D2FF"
+        />
+        <path
+          d="M17.184 8.608L13.792 12l3.392 3.392 3.824-2.193a1.442 1.442 0 0 0 0-2.398l-3.824-2.191z"
+          fill="#FFCE00"
+        />
+        <path
+          d="M3.609 1.814l10.183 10.186 3.392-3.392L6.155 2.378c-.783-.448-1.745-.378-2.546.564z"
+          fill="#00F076"
+        />
+        <path
+          d="M13.792 12L3.609 22.186c.801.942 1.763 1.012 2.546.564l11.029-6.23-3.392-3.392-.001-.001-.001.001z"
+          fill="#FF3A44"
+        />
+      </svg>
+      <span className="google-play-text">
+        <span className="google-play-sub">GET IT ON</span>
+        <span className="google-play-title">Google Play</span>
+      </span>
+    </a>
+  )
+}
 
 export function SiteHeader() {
   return (
@@ -10,14 +65,26 @@ export function SiteHeader() {
           <span>PATHOLOGIC</span>
         </Link>
         <nav className="desktop-nav" aria-label="Primary navigation">
-         <Link href="/" className="nav-link">Home</Link>
+          <Link href="/" className="nav-link">Home</Link>
+          <Link href="/#about" className="nav-link">About</Link>
+          <Link href="/#features" className="nav-link">Key Features</Link>
+          <Link href="/#how-it-works" className="nav-link">How It Works</Link>
+          <Link href="/#download" className="nav-link">Download</Link>
           <Link href="/privacy-policy" className="nav-link">Privacy Policy</Link>
-          <Link href="/terms-and-conditions" className="nav-link">Terms &amp; Conditions</Link>
         </nav>
+        <div className="header-cta-wrap">
+          <Link href="#download" className="header-play-link">
+            Get the App
+          </Link>
+        </div>
         <details className="mobile-menu">
           <summary aria-label="Open navigation"><Menu aria-hidden="true" /></summary>
           <nav aria-label="Mobile navigation">
             <Link href="/">Home</Link>
+            <Link href="/#about">About</Link>
+            <Link href="/#features">Key Features</Link>
+            <Link href="/#how-it-works">How It Works</Link>
+            <Link href="/#download">Download</Link>
             <Link href="/privacy-policy">Privacy policy</Link>
             <Link href="/terms-and-conditions">Terms &amp; conditions</Link>
           </nav>
@@ -31,18 +98,32 @@ export function SiteFooter() {
   return (
     <footer className="site-footer" id="contact">
       <div className="container footer-grid">
-        <div>
-          <Link href="/" className="brand footer-brand"><span className="brand-mark" aria-hidden="true"><span /></span><span>PATHOLOGIC</span></Link>
-          <p className="footer-copy">From Field Findings to Laboratory Confirmation.<br />A systematic postmortem. A better sample. A more accurate diagnosis.</p>
+        <div className="footer-brand-col">
+          <Link href="/" className="brand footer-brand">
+            <span className="brand-mark" aria-hidden="true"><span /></span>
+            <span>PATHOLOGIC</span>
+          </Link>
+          <p className="footer-copy">
+            From Field Findings to Laboratory Confirmation.
+            <br />
+            A field veterinary postmortem and disease investigation assistant.
+          </p>
         </div>
-        <div className="footer-links">
-          <Link href="/">Home</Link>
-          <Link href="/#about">About</Link>
-          <Link href="/#how-to-use">How to Use</Link>
-          <Link href="/privacy-policy">Privacy policy</Link>
-          <Link href="/terms-and-conditions">Terms &amp; conditions</Link>
+        <div className="footer-links-col">
+          <div className="footer-links-title">Quick Navigation</div>
+          <div className="footer-links">
+            <Link href="/">Home</Link>
+            <Link href="/#about">About PATHOLOGIC</Link>
+            <Link href="/#features">Key Features</Link>
+            <Link href="/#how-it-works">How It Works</Link>
+            <Link href="/#download">Download App</Link>
+            <Link href="/privacy-policy">Privacy Policy</Link>
+            <Link href="/terms-and-conditions">Terms &amp; Conditions</Link>
+          </div>
         </div>
-        <p className="copyright">© {new Date().getFullYear()} PATHOLOGIC. All rights reserved.</p>
+        <div className="footer-bottom-row">
+          <p className="copyright">© 2026 PATHOLOGIC. All rights reserved.</p>
+        </div>
       </div>
     </footer>
   )
@@ -52,58 +133,126 @@ export function PageShell({ children }: { children: React.ReactNode }) {
   return <><SiteHeader />{children}<SiteFooter /></>
 }
 
-/* ──────── DATA ARRAYS ──────── */
+/* ──────── NEW DATA STRUCTURES FOR HOME PAGE ──────── */
 
-export const steps = [
-  ['01', 'Observe', 'Examine the animal and identify findings.'],
-  ['02', 'Record', 'Document postmortem observations.'],
-  ['03', 'Suspect', 'Review possible diagnoses.'],
-  ['04', 'Sample', 'Identify recommended samples.'],
-  ['05', 'Test', 'Review recommended investigations.'],
-  ['06', 'Confirm', 'Support confirmation through laboratory testing and veterinary judgement.'],
+export const keyFeaturesList = [
+  {
+    title: 'Systematic Postmortem Examination',
+    description:
+      'Record external lesions, mucous membrane abnormalities, lymph node findings, and internal organ changes in a structured workflow.',
+    Icon: ClipboardList,
+    tag: 'Examination',
+  },
+  {
+    title: 'Tentative Disease Identification',
+    description:
+      'Explore possible diagnoses and differential diagnoses based on the combination of gross pathological findings.',
+    Icon: Search,
+    tag: 'Diagnosis',
+  },
+  {
+    title: 'Sample Collection Guidance',
+    description:
+      'Identify recommended tissues, organs, swabs, blood, and other specimens for diagnostic investigation.',
+    Icon: FlaskConical,
+    tag: 'Sampling',
+  },
+  {
+    title: 'Laboratory Test Recommendations',
+    description:
+      'Review potentially appropriate investigations, including histopathology, culture, PCR, serology, and toxicological testing.',
+    Icon: Microscope,
+    tag: 'Laboratory',
+  },
+  {
+    title: 'Diagnostic Sampling Checklist',
+    description:
+      'Review key examination and sample collection steps before leaving the postmortem site.',
+    Icon: ClipboardCheck,
+    tag: 'Checklist',
+  },
+  {
+    title: 'Multiple Animal Species',
+    description:
+      'Support investigations involving cattle, buffalo, sheep, goats, horses, camels, dogs, cats, and pigs.',
+    Icon: PawPrint,
+    tag: 'Multi-Species',
+  },
 ] as const
 
-export const howToUseSteps = [
-  ['Step 1', 'Start the Application'],
-  ['Step 2', 'Select the Animal Species'],
-  ['Step 3', 'Record External Examination Findings'],
-  ['Step 4', 'Examine the Mucous Membranes'],
-  ['Step 5', 'Examine the Lymph Nodes'],
-  ['Step 6', 'Systematic Examination of Internal Organs'],
-  ['Step 7', 'Enter Multiple Findings'],
-  ['Step 8', 'Obtain a Tentative Diagnosis'],
-  ['Step 9', 'Sample Collection Recommendations'],
-  ['Step 10', 'Recommended Confirmatory Laboratory Tests'],
-  ['Step 11', 'Generate a Diagnostic Sampling Checklist'],
+export const howItWorksList = [
+  {
+    step: '01',
+    title: 'Select Animal Species',
+    description: 'Choose the relevant animal species for the examination.',
+  },
+  {
+    step: '02',
+    title: 'Record Postmortem Findings',
+    description:
+      'Document observed lesions and abnormalities across external and internal examinations.',
+  },
+  {
+    step: '03',
+    title: 'Review Possible Diagnoses',
+    description: 'Explore tentative diagnoses and relevant differential diagnoses.',
+  },
+  {
+    step: '04',
+    title: 'Identify Required Samples',
+    description: 'Review recommended specimens and sample collection guidance.',
+  },
+  {
+    step: '05',
+    title: 'Review Laboratory Tests',
+    description: 'Identify potentially appropriate confirmatory investigations.',
+  },
+  {
+    step: '06',
+    title: 'Complete the Sampling Checklist',
+    description: 'Review sample collection and preparation before laboratory submission.',
+  },
 ] as const
 
-export const whyPoints = [
-  ['What could be the disease?', 'Based on the combination of gross lesions observed during postmortem examination.'],
-  ['What samples should I collect?', 'The app recommends appropriate tissues, organs, swabs, blood or other specimens according to the suspected disease.'],
-  ['Which laboratory tests should be performed?', 'The app suggests appropriate confirmatory investigations such as histopathology, bacterial culture, PCR/RT-PCR, antigen detection, immunohistochemistry, serology, toxicological examination, and more.'],
+export const whoCanUseList = [
+  {
+    title: 'Field veterinarians and veterinary officers',
+    Icon: Stethoscope,
+    badge: 'Field Practice',
+  },
+  {
+    title: 'Veterinary pathologists',
+    Icon: Microscope,
+    badge: 'Pathology',
+  },
+  {
+    title: 'Disease investigation and outbreak response teams',
+    Icon: ShieldCheck,
+    badge: 'Outbreak Response',
+  },
+  {
+    title: 'Veterinary diagnostic laboratories and hospitals',
+    Icon: Hospital,
+    badge: 'Diagnostics',
+  },
+  {
+    title: 'Government veterinary services',
+    Icon: Building2,
+    badge: 'Public Veterinary Service',
+  },
+  {
+    title: 'Veterinary teaching institutions and students undertaking supervised field training',
+    Icon: GraduationCap,
+    badge: 'Academia & Training',
+  },
 ] as const
 
-export const whoCanUse = [
-  'Field veterinarians',
-  'Veterinary officers',
-  'Veterinary pathologists',
-  'Disease investigation officers',
-  'Veterinary diagnostic laboratories',
-  'Veterinary hospitals',
-  'Government veterinary services',
-  'Veterinary teaching institutions',
-  'Veterinary students during supervised field training',
-  'Epidemiological and outbreak investigation teams',
-] as const
-
-export const corePrinciple = [
-  ['Observe', 'the gross lesions carefully.'],
-  ['Record', 'the findings systematically.'],
-  ['Suspect', 'the most likely diseases and differentials.'],
-  ['Sample', 'the correct tissues using the correct collection method.'],
-  ['Test', 'using appropriate laboratory investigations.'],
-  ['Confirm', 'the diagnosis through laboratory evidence.'],
-] as const
+/* Legacy aliases for backward compatibility */
+export const steps = []
+export const howToUseSteps = []
+export const whyPoints = []
+export const whoCanUse = whoCanUseList.map((item) => item.title)
+export const corePrinciple = []
 
 export const features = [
   ['Structured postmortem findings', 'A clear way to capture observations consistently.'],
