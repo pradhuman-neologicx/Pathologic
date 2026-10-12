@@ -73,9 +73,9 @@ a { color: inherit; text-decoration: none; }
 
 /* ══════════ HERO ══════════ */
 .hero {
-  min-height: 720px;
+  /* min-height: 720px; */
   display: flex; align-items: center;
-  padding: 92px 0 110px;
+  padding: 70px 0;
   overflow: hidden;
   position: relative;
 }
@@ -762,7 +762,7 @@ a { color: inherit; text-decoration: none; }
 .legal-intro h1 {
   font-size: clamp(42px, 5vw, 62px);
   line-height: 1;
-  letter-spacing: -.06em;
+  /* letter-spacing: -.06em; */
   font-weight: 500;
   margin: 0 0 25px;
 }
