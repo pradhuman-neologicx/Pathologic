@@ -11,8 +11,8 @@ export function SiteHeader() {
         </Link>
         <nav className="desktop-nav" aria-label="Primary navigation">
          <Link href="/" className="nav-link">Home</Link>
-          <Link href="/privacy-policy" className="nav-link">Privacy</Link>
-          <Link href="/terms-and-conditions" className="nav-link">Terms</Link>
+          <Link href="/privacy-policy" className="nav-link">Privacy Policy</Link>
+          <Link href="/terms-and-conditions" className="nav-link">Terms &amp; Conditions</Link>
         </nav>
         <details className="mobile-menu">
           <summary aria-label="Open navigation"><Menu aria-hidden="true" /></summary>
